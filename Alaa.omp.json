@@ -191,7 +191,7 @@
         {
           "foreground": "#63F08C",
           "style": "plain",
-          "template": "\u279c  \n",
+          "template": "\u279c ",
           "type": "text"
         }
       ],
@@ -200,4 +200,5 @@
   ],
   "version": 3
 }
+
 
