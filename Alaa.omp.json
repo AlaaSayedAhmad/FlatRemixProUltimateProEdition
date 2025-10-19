@@ -1,6 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-  "name": "FlatRemixProUltimateProEdition_Final_Pro_Dev",
+  "name": "FlatRemixProUltimateProEdition_ElegantVelvet_Transient",
   "blocks": [
     {
       "alignment": "right",
@@ -9,14 +9,14 @@
         {
           "type": "time",
           "style": "plain",
-          "foreground": "#82aaff",
+          "foreground": "#93B7D2",
           "template": "  {{ .CurrentDate | date \"03:04 PM\" }} "
         },
-        // 2. Tooltip (مساعدة سياقية - UX)
+        // 2. Tooltip
         {
           "type": "tooltip",
           "style": "plain",
-          "foreground": "#FCA17D",
+          "foreground": "#D9BF80",
           "properties": {
             "commands": [
               "git",
@@ -30,7 +30,7 @@
         {
           "type": "git",
           "style": "plain",
-          "foreground": "#FCA17D",
+          "foreground": "#D9BF80",
           "properties": {
             "fetch_status": true,
             "fetch_upstream_icon": true,
@@ -38,21 +38,21 @@
           },
           "template": " |  {{ .HEAD }}{{ if .Working.Changed }} ✏️ {{ end }}{{ if gt .StashCount 0 }} 💾 {{ .StashCount }}{{ end }} "
         },
-        // 4. PHP (مبسط)
+        // 4. PHP
         {
           "type": "php",
           "style": "plain",
-          "foreground": "#8892BF",
+          "foreground": "#B382B8",
           "properties": {
             "fetch_version": true
           },
           "template": " |  {{ .Full }} "
         },
-        // 5. Node (مبسط)
+        // 5. Node
         {
           "type": "node",
           "style": "plain",
-          "foreground": "#88e570",
+          "foreground": "#8F9E66",
           "properties": {
             "display_mode": "files",
             "fetch_package_manager": true,
@@ -60,31 +60,31 @@
           },
           "template": " | \ue718 {{ .Full }} "
         },
-        // 6. NPM (مبسط)
+        // 6. NPM
         {
           "type": "npm",
           "style": "plain",
-          "foreground": "#CC3534",
+          "foreground": "#D27B7B",
           "properties": {
             "fetch_version": true
           },
           "template": " |  {{ .Full }} "
         },
-        // 7. Go (مبسط)
+        // 7. Go
         {
           "type": "go",
           "style": "plain",
-          "foreground": "#00ADD8",
+          "foreground": "#93B7D2",
           "properties": {
             "display_mode": "version"
           },
           "template": " |  {{ .Full }} "
         },
-        // 8. Python (مبسط)
+        // 8. Python
         {
           "type": "python",
           "style": "plain",
-          "foreground": "#9ece6a",
+          "foreground": "#D9BF80",
           "properties": {
             "display_mode": "version"
           },
@@ -96,10 +96,10 @@
     {
       "alignment": "left",
       "segments": [
-        // 1. OS (أيقونات واضحة)
+        // 1. OS
         {
-          "background": "#003543",
-          "foreground": "#00c983",
+          "background": "#1B2B34",
+          "foreground": "#D8D8D8",
           "leading_diamond": "\ue0b6",
           "style": "diamond",
           "template": "{{ .Icon }} {{ .HostName }} ",
@@ -109,15 +109,15 @@
             "linux": ""
           }
         },
-        // 2. Session (تحذير Root القوي)
+        // 2. Session
         {
           "type": "session",
           "style": "powerline",
           "powerline_symbol": "\ue0b0",
           "background_templates": [
-            "{{ if .Root }}#E06C75{{ else }}#5294e2{{ end }}"
+            "{{ if .Root }}#D27B7B{{ else }}#6B5B95{{ end }}"
           ],
-          "foreground": "#1e2127",
+          "foreground": "#D8D8D8",
           "template": " 👤 {{ .UserName }} "
         },
         // 3. Shell
@@ -125,8 +125,8 @@
           "type": "shell",
           "style": "powerline",
           "powerline_symbol": "\ue0b0",
-          "background": "#41a6b5",
-          "foreground": "#1e2127",
+          "background": "#497F87",
+          "foreground": "#D8D8D8",
           "template": " 🖥️ {{ .Name }} "
         },
         // 4. Path
@@ -134,8 +134,8 @@
           "type": "path",
           "style": "powerline",
           "powerline_symbol": "\ue0b0",
-          "background": "#41a6b5",
-          "foreground": "#1e2127",
+          "background": "#547A56",
+          "foreground": "#D8D8D8",
           "template": "  {{ .Path }} ",
           "properties": {
             "style": "agnoster_full",
@@ -156,31 +156,31 @@
             }
           }
         },
-        // 5. Kubernetes (موجود)
+        // 5. Kubernetes
         {
           "type": "kubernetes",
           "style": "powerline",
           "powerline_symbol": "\ue0b0",
-          "background": "#326ce5",
-          "foreground": "#ffffff",
+          "background": "#B382B8",
+          "foreground": "#D8D8D8",
           "template": " ☸️ {{ .Context }} {{ .Namespace }} "
         },
-        // 6. AWS (موجود)
+        // 6. AWS
         {
           "type": "aws",
           "style": "powerline",
           "powerline_symbol": "\ue0b0",
-          "background": "#ff9900",
-          "foreground": "#1e2127",
+          "background": "#D9BF80",
+          "foreground": "#1B2B34",
           "template": "  {{ .Profile }}@{{ .Region }} "
         },
-        // 7. Docker (موجود)
+        // 7. Docker
         {
           "type": "docker",
           "style": "powerline",
           "powerline_symbol": "\ue0b0",
-          "background": "#0db7ed",
-          "foreground": "#1e2127",
+          "background": "#93B7D2",
+          "foreground": "#1B2B34",
           "properties": {
             "display_mode": "context"
           },
@@ -189,8 +189,8 @@
         // 8. Execution Time
         {
           "type": "executiontime",
-          "background": "#83769c",
-          "foreground": "#ffffff",
+          "background": "#5E81AC",
+          "foreground": "#D8D8D8",
           "powerline_symbol": "\ue0b0",
           "properties": {
             "threshold": 500
@@ -199,18 +199,18 @@
           "template": " \ueba2 {{ .FormattedMs }} ",
           "type": "executiontime"
         },
-        // 9. Status (أيقونات واضحة)
+        // 9. Status
         {
           "background_templates": [
-            "{{ if gt .Code 0 }}#E06C75{{ else }}#3399CC{{ end }}"
+            "{{ if gt .Code 0 }}#D27B7B{{ else }}#8F9E66{{ end }}"
           ],
-          "foreground": "#ffffff",
+          "foreground": "#1B2B34",
           "powerline_symbol": "\ue0b0",
           "properties": {
             "always_enabled": true
           },
           "style": "powerline",
-          "template": " {{ if gt .Code 0 }}  {{ .Code }}{{ else }}  {{ end }}<#00c983> \u279c </>",
+          "template": " {{ if gt .Code 0 }}  {{ .Code }}{{ else }}  {{ end }}<#D8D8D8> \u279c </>",
           "type": "status"
         }
       ],
@@ -219,7 +219,7 @@
   ],
   "final_space": true,
   "version": 3,
-  // 💥 Transient Prompt (UX) 💥
+  // 💥 تمت إضافة الموجه العابر مرة أخرى 💥
   "transient_prompt": {
     "foreground": "#00c983",
     "template": " "
