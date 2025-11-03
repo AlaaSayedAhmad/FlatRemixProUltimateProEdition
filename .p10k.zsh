@@ -1072,7 +1072,7 @@ typeset -g POWERLEVEL9K_NODEENV_VISUAL_IDENTIFIER_EXPANSION=''
 # Node version color.
 typeset -g POWERLEVEL9K_NODE_VERSION_FOREGROUND=70
 # Always show Node version (not only when inside package.json)
-typeset -g POWERLEVEL9K_NODE_VERSION_PROJECT_ONLY=false
+typeset -g POWERLEVEL9K_NODE_VERSION_PROJECT_ONLY=true
 # ✅ Show Node version only (icon + version)
 typeset -g POWERLEVEL9K_NODE_VERSION_CONTENT_EXPANSION='⬢ $(node -v 2>/dev/null)'
 # Disable redundant label
@@ -1084,7 +1084,7 @@ typeset -g POWERLEVEL9K_NODE_VERSION_VISUAL_IDENTIFIER_EXPANSION=''
 typeset -g POWERLEVEL9K_GO_VERSION_FOREGROUND=37
 
 # ✅ Always show Go version (not only in go project)
-typeset -g POWERLEVEL9K_GO_VERSION_PROJECT_ONLY=false
+typeset -g POWERLEVEL9K_GO_VERSION_PROJECT_ONLY=true
 
 # ✅ Show version only (no labels, no folder name)
 typeset -g POWERLEVEL9K_GO_VERSION_CONTENT_EXPANSION='🦫 $(go version 2>/dev/null | awk "{print \$3}")'
