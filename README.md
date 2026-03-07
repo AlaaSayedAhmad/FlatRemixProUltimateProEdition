@@ -51,28 +51,28 @@ cd FlatRemixProUltimateProEdition
 ### 2 — Copy Theme
 
 ```bash
-cp FlatRemixProUltimateProEdition.omp.json ~/.poshthemes/
+cp Alaa.omp.json ~/.poshthemes/
 ```
 
 ### 3 — Apply (ZSH)
 
 ```bash
 # Add to ~/.zshrc
-eval "$(oh-my-posh init zsh --config ~/.poshthemes/FlatRemixProUltimateProEdition.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.poshthemes/Alaa.omp.json)"
 ```
 
 ### 4 — Apply (Bash)
 
 ```bash
 # Add to ~/.bashrc
-eval "$(oh-my-posh init bash --config ~/.poshthemes/FlatRemixProUltimateProEdition.omp.json)"
+eval "$(oh-my-posh init bash --config ~/.poshthemes/Alaa.omp.json)"
 ```
 
 ### 5 — Apply (PowerShell)
 
 ```powershell
 # Add to $PROFILE
-oh-my-posh init pwsh --config "$env:USERPROFILE\.poshthemes\FlatRemixProUltimateProEdition.omp.json" | Invoke-Expression
+oh-my-posh init pwsh --config "$env:USERPROFILE\.poshthemes\Alaa.omp.json" | Invoke-Expression
 ```
 
 ---
@@ -92,7 +92,7 @@ oh-my-posh init pwsh --config "$env:USERPROFILE\.poshthemes\FlatRemixProUltimate
 
 ## 🎨 Customization
 
-Open `FlatRemixProUltimateProEdition.omp.json` and edit:
+Open `Alaa.omp.json` and edit:
 
 ```json
 // Change colors, icons, segments, and paths
