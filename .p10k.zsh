@@ -32,7 +32,6 @@
   # The list of segments shown on the left. Fill it with the most important segments.
  typeset -g POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
     os_icon                 # أيقونة النظام
-    context
     dir                     # المجلد الحالي
    
     vcs                     # حالة Git
@@ -55,8 +54,6 @@
     # public_ip               # عنوان IP الخارجي (مهم للشبكات)
     # wifi                    # سرعة الواي فاي
     load                    # ضغط المعالج CPU Load
-    ram                     # استهلاك الرام
-    disk_usage              # مساحة القرص
 
     # --- Cloud & DevOps Tools (تظهر فقط عند الحاجة) ---
     kubecontext             # Kubernetes Context
@@ -180,20 +177,20 @@
 
   ##################################[ dir: current directory ]##################################
   # Current directory background color.
-  typeset -g POWERLEVEL9K_DIR_BACKGROUND=61
+  typeset -g POWERLEVEL9K_DIR_BACKGROUND='#3779f2'
   
   # Default current directory foreground color.
-  typeset -g POWERLEVEL9K_DIR_FOREGROUND=255
+  typeset -g POWERLEVEL9K_DIR_FOREGROUND='#202b45'
   # If directory is too long, shorten some of its segments to the shortest possible unique
   # prefix. The shortened directory can be tab-completed to the original.
   typeset -g POWERLEVEL9K_SHORTEN_STRATEGY=truncate_to_unique
   # Replace removed segment suffixes with this symbol.
   typeset -g POWERLEVEL9K_SHORTEN_DELIMITER=
   # Color of the shortened directory segments.
-  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND=145
+  typeset -g POWERLEVEL9K_DIR_SHORTENED_FOREGROUND='#282936'
   # Color of the anchor directory segments. Anchor segments are never shortened. The first
   # segment is always an anchor.
-  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND=189
+  typeset -g POWERLEVEL9K_DIR_ANCHOR_FOREGROUND='#282936'
   # Display anchor directory segments in bold.
   typeset -g POWERLEVEL9K_DIR_ANCHOR_BOLD=true
   # Don't shorten directories that contain any of these files. They are anchors.
@@ -321,12 +318,12 @@
 
   #####################################[ vcs: git status ]######################################
   # Version control background colors.
-  typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=23
-  typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND=79
-  typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=58
-  typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=215
-  typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=23
-  typeset -g POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=79
+  typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=73
+  typeset -g POWERLEVEL9K_VCS_CLEAN_FOREGROUND=0
+  typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=208
+  typeset -g POWERLEVEL9K_VCS_MODIFIED_FOREGROUND=0
+  typeset -g POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND=73
+  typeset -g POWERLEVEL9K_VCS_UNTRACKED_FOREGROUND=0
   typeset -g POWERLEVEL9K_VCS_CONFLICTED_BACKGROUND=52
   typeset -g POWERLEVEL9K_VCS_LOADING_BACKGROUND=8
 
@@ -496,8 +493,8 @@
   # it will signify error by turning red.
   typeset -g POWERLEVEL9K_STATUS_ERROR=true
   typeset -g POWERLEVEL9K_STATUS_ERROR_VISUAL_IDENTIFIER_EXPANSION='✘'
-  typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND=210
-  typeset -g POWERLEVEL9K_STATUS_ERROR_BACKGROUND=52
+  typeset -g POWERLEVEL9K_STATUS_ERROR_FOREGROUND=255
+  typeset -g POWERLEVEL9K_STATUS_ERROR_BACKGROUND=160
 
   # Status when the last command was terminated by a signal.
   typeset -g POWERLEVEL9K_STATUS_ERROR_SIGNAL=true
@@ -516,8 +513,8 @@
 
   ###################[ command_execution_time: duration of the last command ]###################
   # Execution time color.
-  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=255
-  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND=60
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND=214
+  typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND=0
   # Show duration of the last command if takes at least this many seconds.
   typeset -g POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=3
   # Show this many fractional digits. Zero means round to seconds.
@@ -819,8 +816,8 @@
 
   ######################################[ ram: free RAM ]#######################################
   # RAM color.
-  typeset -g POWERLEVEL9K_RAM_FOREGROUND=15
-  typeset -g POWERLEVEL9K_RAM_BACKGROUND=237
+  typeset -g POWERLEVEL9K_RAM_FOREGROUND=0
+  typeset -g POWERLEVEL9K_RAM_BACKGROUND=214
   # Custom icon.
   # typeset -g POWERLEVEL9K_RAM_VISUAL_IDENTIFIER_EXPANSION='⭐'
 
@@ -835,8 +832,8 @@
   # Show average CPU load over this many last minutes. Valid values are 1, 5 and 15.
   typeset -g POWERLEVEL9K_LOAD_WHICH=5
   # Load color when load is under 50%.
-  typeset -g POWERLEVEL9K_LOAD_NORMAL_FOREGROUND=15
-  typeset -g POWERLEVEL9K_LOAD_NORMAL_BACKGROUND=237
+  typeset -g POWERLEVEL9K_LOAD_NORMAL_FOREGROUND=0
+  typeset -g POWERLEVEL9K_LOAD_NORMAL_BACKGROUND=214
   # Load color when load is between 50% and 70%.
   typeset -g POWERLEVEL9K_LOAD_WARNING_FOREGROUND=215
   typeset -g POWERLEVEL9K_LOAD_WARNING_BACKGROUND=60
@@ -943,7 +940,7 @@
   typeset -g POWERLEVEL9K_CONTEXT_{REMOTE,REMOTE_SUDO}_BACKGROUND=0
   # Default context color (no privileges, no SSH).
   typeset -g POWERLEVEL9K_CONTEXT_FOREGROUND=255
-  typeset -g POWERLEVEL9K_CONTEXT_BACKGROUND=60
+  typeset -g POWERLEVEL9K_CONTEXT_BACKGROUND=160
 
   # Context format when running with privileges: user@hostname.
   typeset -g POWERLEVEL9K_CONTEXT_ROOT_TEMPLATE='%n@%m'
@@ -1716,10 +1713,10 @@
 
   ####################################[ time: current time ]####################################
   # Current time color.
-  typeset -g POWERLEVEL9K_TIME_FOREGROUND=111
+  typeset -g POWERLEVEL9K_TIME_FOREGROUND=255
   typeset -g POWERLEVEL9K_TIME_BACKGROUND=236
   # Format for the current time: 09:51:02. See `man 3 strftime`.
-  typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%H:%M:%S}'
+  typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%I:%M}'
   # If set to true, time will update when you hit enter. This way prompts for the past
   # commands will contain the start times of their commands as opposed to the default
   # behavior where they contain the end times of their preceding commands.
@@ -1727,7 +1724,7 @@
   # Custom icon.
   # typeset -g POWERLEVEL9K_TIME_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
-  typeset -g POWERLEVEL9K_TIME_PREFIX='at '
+  typeset -g POWERLEVEL9K_TIME_PREFIX=''
 
   # Example of a user-defined prompt segment. Function prompt_example will be called on every
   # prompt if `example` prompt segment is added to POWERLEVEL9K_LEFT_PROMPT_ELEMENTS or
@@ -1834,3 +1831,5 @@ typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 
 (( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
 'builtin' 'unset' 'p10k_config_opts'
+  typeset -g POWERLEVEL9K_DIR_HOME_VISUAL_IDENTIFIER_COLOR=235
+  typeset -g POWERLEVEL9K_DIR_VISUAL_IDENTIFIER_BOLD=true
