@@ -63,9 +63,9 @@
     gcloud                  # Google Cloud
     
     # --- Programming Environments ---
+    node_version            # Node.js
     virtualenv              # Python venv
     anaconda                # Conda
-    node_version            # Node.js
     go_version              # Go Lang
     rust_version            # Rust
     php_version             # PHP
@@ -962,8 +962,8 @@
   # 1. الألوان: خط أبيض (15) على خلفية زرقاء (4) لتناسب فيدورا
 ###[ virtualenv: python virtual environment (https://docs.python.org/3/library/venv.html) ]###
   # 1. الألوان: خط أبيض (15) على خلفية زرقاء (4) لتناسب فيدورا
-  typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND=179
-  typeset -g POWERLEVEL9K_VIRTUALENV_BACKGROUND=60
+  typeset -g POWERLEVEL9K_VIRTUALENV_FOREGROUND='#feae01'
+  typeset -g POWERLEVEL9K_VIRTUALENV_BACKGROUND='#1f2229'
   
   # 2. إظهار رقم إصدار البايثون بجانب اسم البيئة (تم التفعيل)
   typeset -g POWERLEVEL9K_VIRTUALENV_SHOW_PYTHON_VERSION=true
@@ -1012,8 +1012,8 @@
 
   ################[ pyenv: python environment (https://github.com/pyenv/pyenv) ]################
   # Pyenv color.
-  typeset -g POWERLEVEL9K_PYENV_FOREGROUND=179
-  typeset -g POWERLEVEL9K_PYENV_BACKGROUND=60
+  typeset -g POWERLEVEL9K_PYENV_FOREGROUND='#feae01'
+  typeset -g POWERLEVEL9K_PYENV_BACKGROUND='#1f2229'
   # Hide python version if it doesn't come from one of these sources.
   typeset -g POWERLEVEL9K_PYENV_SOURCES=(shell local global)
   # If set to false, hide python version if it's the same as global:
@@ -1713,8 +1713,8 @@
 
   ####################################[ time: current time ]####################################
   # Current time color.
-  typeset -g POWERLEVEL9K_TIME_FOREGROUND=255
-  typeset -g POWERLEVEL9K_TIME_BACKGROUND=236
+  typeset -g POWERLEVEL9K_TIME_FOREGROUND='#feae01'
+  typeset -g POWERLEVEL9K_TIME_BACKGROUND='#1f2229'
   # Format for the current time: 09:51:02. See `man 3 strftime`.
   typeset -g POWERLEVEL9K_TIME_FORMAT='%D{%I:%M}'
   # If set to true, time will update when you hit enter. This way prompts for the past
