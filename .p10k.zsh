@@ -53,7 +53,6 @@
     # ip                      # عنوان IP المحلي
     # public_ip               # عنوان IP الخارجي (مهم للشبكات)
     # wifi                    # سرعة الواي فاي
-    load                    # ضغط المعالج CPU Load
 
     # --- Cloud & DevOps Tools (تظهر فقط عند الحاجة) ---
     kubecontext             # Kubernetes Context
@@ -1779,7 +1778,7 @@
   #   - verbose: Enable instant prompt and print a warning when detecting console output during
   #              zsh initialization. Choose this if you've never tried instant prompt, haven't
   #              seen the warning, or if you are unsure what this all means.
-  typeset -g POWERLEVEL9K_INSTANT_PROMPT=off
+  typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
   # Hot reload allows you to change POWERLEVEL9K options after Powerlevel10k has been initialized.
   # For example, you can type POWERLEVEL9K_BACKGROUND=red and see your prompt turn red. Hot reload
@@ -1799,8 +1798,9 @@
   # ==============================================
   function prompt_py_finder() {
     [[ -n $VIRTUAL_ENV ]] && return
-    local pyfiles=(*.py(N))
-    (( ${#pyfiles} )) || return
+    # اعتبره سياق بايثون لو وُجد أيٌّ من هذه في المجلد الحالي (فحص أسماء ملفات سريع)
+    local -a markers=(*.py(N) pyproject.toml(N) requirements.txt(N) setup.py(N) setup.cfg(N) Pipfile(N))
+    (( ${#markers} )) || return
     # احسب إصدار بايثون مرة واحدة لكل جلسة ثم خزّنه (بدل تشغيل بايثون كل سطر أوامر)
     if [[ -z $_py_finder_ver ]]; then
       _py_finder_ver=${$(python3 --version 2>/dev/null || python --version 2>/dev/null)##* }
