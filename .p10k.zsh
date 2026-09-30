@@ -353,10 +353,10 @@
     fi
 
     # Styling for different parts of Git status.
-    local       meta='%7F' # white foreground
-    local      clean='%0F' # black foreground
-    local   modified='%0F' # black foreground
-    local  untracked='%0F' # black foreground
+    local       meta='%F{#000000}' # black foreground
+    local      clean='%F{#000000}' # black foreground
+    local   modified='%F{#000000}' # black foreground
+    local  untracked='%F{#000000}' # black foreground
     local conflicted='%1F' # red foreground
 
     local res
@@ -463,7 +463,7 @@
   # Custom icon.
   # typeset -g POWERLEVEL9K_VCS_VISUAL_IDENTIFIER_EXPANSION='⭐'
   # Custom prefix.
-  typeset -g POWERLEVEL9K_VCS_PREFIX='on '
+  typeset -g POWERLEVEL9K_VCS_PREFIX='%F{#000000}on '
 
   # Show status of repositories of these types. You can add svn and/or hg if you are
   # using them. If you do, your prompt may become slow even when your current directory
@@ -1789,6 +1789,7 @@
 
   # If p10k is already loaded, reload configuration.
   # This works even with POWERLEVEL9K_DISABLE_HOT_RELOAD=true.
+  typeset -g POWERLEVEL9K_DIR_HOME_VISUAL_IDENTIFIER_COLOR=235
   (( ! $+functions[p10k] )) || p10k reload
   
   
@@ -1797,28 +1798,15 @@
   #  Python Detector + Version (Fedora Style)
   # ==============================================
   function prompt_py_finder() {
-  [[ -n $VIRTUAL_ENV ]] && return
-    # 1. البحث عن ملفات .py
+    [[ -n $VIRTUAL_ENV ]] && return
     local pyfiles=(*.py(N))
-    
-    if (( ${#pyfiles} > 0 )); then
-      # 2. محاولة جلب الإصدار (يأخذ الكلمة الثانية من "Python 3.12.1")
-      local py_v=$(python3 --version 2>/dev/null | cut -d' ' -f2)
-      
-      # إذا لم ينجح python3، جرب python العادي
-      if [[ -z "$py_v" ]]; then
-        py_v=$(python --version 2>/dev/null | cut -d' ' -f2)
-      fi
-      
-      # إذا فشل في جلب الإصدار، نكتب كلمة Py بدلاً منه
-      [[ -z "$py_v" ]] && py_v="Py"
-
-      # 3. عرض النتيجة
-      # -b 4: خلفية زرقاء (Fedora)
-      # -f 15: خط أبيض
-      # -i '': الشعار
-      p10k segment -b 4 -f 15 -i '' -t "$py_v"
+    (( ${#pyfiles} )) || return
+    # احسب إصدار بايثون مرة واحدة لكل جلسة ثم خزّنه (بدل تشغيل بايثون كل سطر أوامر)
+    if [[ -z $_py_finder_ver ]]; then
+      _py_finder_ver=${$(python3 --version 2>/dev/null || python --version 2>/dev/null)##* }
+      [[ -n $_py_finder_ver ]] || _py_finder_ver=Py
     fi
+      p10k segment -b 4 -f 15 -i '' -t "$_py_finder_ver"
   }
   
   
@@ -1831,5 +1819,3 @@ typeset -g POWERLEVEL9K_CONFIG_FILE=${${(%):-%x}:a}
 
 (( ${#p10k_config_opts} )) && setopt ${p10k_config_opts[@]}
 'builtin' 'unset' 'p10k_config_opts'
-  typeset -g POWERLEVEL9K_DIR_HOME_VISUAL_IDENTIFIER_COLOR=235
-  typeset -g POWERLEVEL9K_DIR_VISUAL_IDENTIFIER_BOLD=true
